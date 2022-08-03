@@ -1,5 +1,11 @@
+import DisplayCards from "./components/DisplayCards";
+
 function App() {
-  return <div className="App"></div>;
+  return (
+    <>
+      <DisplayCards />
+    </>
+  );
 }
 
 export default App;
