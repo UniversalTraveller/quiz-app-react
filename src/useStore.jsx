@@ -9,6 +9,7 @@ const useStore = create((set) => ({
       answer: "Paris",
       tags: ["France", "Capital"],
       bookmark: false,
+      showAnswer: true,
     },
     {
       id: nanoid(),
@@ -16,6 +17,7 @@ const useStore = create((set) => ({
       answer: "Berlin",
       tags: ["Germany", "Capital"],
       bookmark: true,
+      showAnswer: false,
     },
     {
       id: nanoid(),
@@ -23,6 +25,7 @@ const useStore = create((set) => ({
       answer: "Vienna",
       tags: ["Austria", "Capital"],
       bookmark: false,
+      showAnswer: true,
     },
     {
       id: nanoid(),
@@ -30,6 +33,7 @@ const useStore = create((set) => ({
       answer: "William Gibson",
       tags: ["Neuromancer", "Author"],
       bookmark: true,
+      showAnswer: false,
     },
     {
       id: nanoid(),
@@ -37,6 +41,7 @@ const useStore = create((set) => ({
       answer: "Neal Stephenson",
       tags: ["Snow Crash", "Author"],
       bookmark: false,
+      showAnswer: true,
     },
     {
       id: nanoid(),
@@ -44,6 +49,7 @@ const useStore = create((set) => ({
       answer: "Douglas Adams",
       tags: ["Hitchhiker's Guide", "Author"],
       bookmark: true,
+      showAnswer: false,
     },
   ],
   toggleBookmark: (id) => {
@@ -51,6 +57,15 @@ const useStore = create((set) => ({
       return {
         quizCards: state.quizCards.map((card) =>
           card.id === id ? { ...card, bookmark: !card.bookmark } : card
+        ),
+      };
+    });
+  },
+  toggleAnswer: (id) => {
+    set((state) => {
+      return {
+        quizCards: state.quizCards.map((card) =>
+          card.id === id ? { ...card, showAnswer: !card.showAnswer } : card
         ),
       };
     });

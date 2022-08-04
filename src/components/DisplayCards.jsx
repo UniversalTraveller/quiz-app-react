@@ -29,6 +29,7 @@ const BigButton = styled.button`
 export default function DisplayCards() {
   const quizCards = useStore((state) => state.quizCards);
   const toggleBookmark = useStore((state) => state.toggleBookmark);
+  const toggleAnswer = useStore((state) => state.toggleAnswer);
 
   return (
     <div className="App">
@@ -38,12 +39,12 @@ export default function DisplayCards() {
           <BigButton
             type="button"
             onClick={() => {
-              toggleBookmark(card.id);
+              toggleAnswer(card.id);
             }}
           >
             Show Answer
           </BigButton>
-          {card.bookmark && <p>{card.answer}</p>}
+          {card.showAnswer && <p>{card.answer}</p>}
         </Card>
       ))}
     </div>
