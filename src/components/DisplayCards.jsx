@@ -9,8 +9,9 @@ const Card = styled.article`
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
 `;
 
-const Question = styled.p`
+const CardText = styled.p`
   color: blue;
+  padding: 1rem 0;
 `;
 
 const BigButton = styled.button`
@@ -35,7 +36,7 @@ export default function DisplayCards() {
     <div className="App">
       {quizCards.map((card) => (
         <Card key={card.id}>
-          <Question>{card.question}</Question>
+          <CardText>{card.question}</CardText>
           <BigButton
             type="button"
             onClick={() => {
@@ -44,7 +45,7 @@ export default function DisplayCards() {
           >
             Show Answer
           </BigButton>
-          {card.showAnswer && <p>{card.answer}</p>}
+          {card.showAnswer && <CardText>{card.answer}</CardText>}
         </Card>
       ))}
     </div>
